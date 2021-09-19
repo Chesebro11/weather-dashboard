@@ -10,9 +10,25 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>Weather Dashboard</title>
 </head>
 <body>
+  <header class="justify-content-center bg-primary text-white mx-0 px-2">
+    <h1 class="display-4 w-100 text-center">Weather Dashboard</h1>
+  </header>
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search For A City</h3>
+        <form class='card-body'></form>
+        <label for="city" class="form-label">Search For A City</label>
+        <input name='city' id='city' type='text' autofocus='true' class='form-input'/>
+        <button type ='submit' class='btn'>Search</button>
+      </div>
+    </div>
+  </main>
     
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
