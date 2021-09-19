@@ -14,10 +14,12 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+  <!--Header section-->
   <header class="justify-content-center bg-primary text-white mx-0 px-2">
     <h1 class="display-4 w-100 text-center">Weather Dashboard</h1>
   </header>
 
+  <!--City Search Form-->
   <main class="flex-row justify-space-between">
     <div class="col-12 col-md-4">
       <div class="card">
@@ -29,12 +31,26 @@
       </div>
     </div>
     <!--Create section for recently searched cities-->
+    <div id='recent-searches'>
 
+    </div>
 
     <!--Create Section that will provide city current day name date temp wind humidity uv-->
-  
+    <div id='weather-today'>
+      <h2 id='city-today'>ATLANTA</h2>
+      <h3 id='temp-today'>101</h3>
+      <h3 id='wind-today'>6.67mph</h3>
+      <h3 id='humidity-today'>40%</h3>
+      <h3 id='uv-today'>0.47</h3>
+    </div>
   
     <!--5-Day Forecast section-->
+    <div id='5-day-forecast'>
+      <div class="card">
+        <h4 class='card-header'></h3>
+        <h4 class='card-body'></h3>
+      </div>
+    </div>
   
   </main>
     
