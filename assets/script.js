@@ -4,7 +4,7 @@ var cities = [];
 var cityFromEl=document.querySelector('#search-form');
 var cityInputEl=document.querySelector('#city');
 var weatherContainerEl=document.querySelector('#current-weather-container');
-var citySearchINputEl=document.querySelector('#searched-city');
+var citySearchInputEl=document.querySelector('#searched-city');
 var forecastTitle = document.querySelector('#forecast');
 var forecastContainerEl = document.querySelector('#fiveday');
 var pastSearchButtonEl = document.querySelector('#past-search-buttons');
@@ -44,7 +44,12 @@ var getWeather = function(city){
 };
 
 // function to display the weahter
-var displayWeather = function() {
+var displayWeather = function(weather, searchCity) {
+    // need to clear old content if any
+    weatherContainerEl.textContent='';
+    citySearchInputEl.textcontent=searchCity;
+
+    console.log(weather);
 
 };
 
