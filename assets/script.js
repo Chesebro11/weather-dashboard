@@ -198,8 +198,8 @@ var display5DayForecast = function(weather){
 // display the most recent searches
 var searchHistory = function(searchHistory){
 
-    searchHistoryhEl = document.createElement('button');
-    searchHistoryhEl.textContent = searchHistory;
+    var searchHistoryEl = document.createElement('button');
+    searchHistoryEl.textContent = searchHistory;
     searchHistoryEl.classList = 'd-flex w-100 btn-light border p-2';
     searchHistoryEl.setAttribute('data-city', searchHistory)
     searchHistoryEl.setAttribute('type', 'submit');
@@ -212,7 +212,7 @@ var searchHistory = function(searchHistory){
 var searchHistoryHandler = function(event){
     var city = event.target.getAttribute('data-city')
     if(city){
-        getCityWeather(city);
+        getWeather(city);
         get5Day(city);
     }
 }
