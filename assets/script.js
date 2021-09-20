@@ -75,10 +75,22 @@ var displayWeather = function(weather, searchedCity) {
    var windSpeedEl = document.createElement('span');
    windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
    windSpeedEl.classList = "list-group-item"
+
+   // append new elements to the page
+   weatherContainerEl.appendChild(temperatureEl);
+
+   weatherContainerEl.appendChild(humidityEl);
+
+   weatherContainerEl.appendChild(windSpeedEl);
+
+   // grab coordinate data to pass on to getUV
+   var lat = weather.coord.lat;
+   var lon = weather.coord.lon;
+   getUv(lat,lon)
 };
 
 // api call to get uvindex
-var getUv = function(){
+var getUv = function(lat, lon){
     var apiKey='c3bffa45313b11091ad9031fc5d8f2e7';
     var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
 
