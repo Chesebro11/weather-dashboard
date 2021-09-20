@@ -60,6 +60,10 @@ var displayWeather = function(weather, searchCity) {
    weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
    citySearchInputEl.appendChild(weatherIcon);
 
+   var temperatureEl = document.createElement("span");
+   temperatureEl.textContent = "Temperature: " + weather.main.temp + " °F";
+   temperatureEl.classList = "list-group-item"
+
 };
 
 // api call to get uvindex
@@ -100,7 +104,7 @@ var pastSearchHandler = function(){
 cityFromEl.addEventListener('submit', formSubmitHandler);
 pastSearchButtonEl.addEventListener('click', pastSearchHandler);
 
-getWeather('atlanta');
+getWeather('Atlanta');
 
 
 // GIVEN a weather dashboard with form inputs
