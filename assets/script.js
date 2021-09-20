@@ -44,10 +44,10 @@ var getWeather = function(city){
 };
 
 // function to display the weahter
-var displayWeather = function(weather, searchCity) {
+var displayWeather = function(weather, searchedCity) {
     // need to clear old content if any
     weatherContainerEl.textContent='';
-    citySearchInputEl.textContent=searchCity;
+    citySearchInputEl.textContent=searchedCity;
 
     console.log(weather);
 
@@ -56,14 +56,20 @@ var displayWeather = function(weather, searchCity) {
    currentDate.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
    citySearchInputEl.appendChild(currentDate);
 
+   //create an image element for the weather Icon
    var weatherIcon = document.createElement('img')
    weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
    citySearchInputEl.appendChild(weatherIcon);
 
+   // span element to hold temperature
    var temperatureEl = document.createElement("span");
    temperatureEl.textContent = "Temperature: " + weather.main.temp + " °F";
    temperatureEl.classList = "list-group-item"
 
+   // create span element to hold humidity
+   var humidityEl = document.createElement('span');
+   humidityEl.textContent = "Humidity: " + weather.main.humidity + " %"
+   humidityEl.classList = 'list-group-item'
 };
 
 // api call to get uvindex
