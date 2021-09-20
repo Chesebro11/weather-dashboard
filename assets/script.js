@@ -70,6 +70,11 @@ var displayWeather = function(weather, searchedCity) {
    var humidityEl = document.createElement('span');
    humidityEl.textContent = "Humidity: " + weather.main.humidity + " %"
    humidityEl.classList = 'list-group-item'
+
+   // create span element to hold wind speed
+   var windSpeedEl = document.createElement('span');
+   windSpeedEl.textContent = "Wind Speed: " + weather.wind.speed + " MPH";
+   windSpeedEl.classList = "list-group-item"
 };
 
 // api call to get uvindex
