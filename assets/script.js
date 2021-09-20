@@ -98,19 +98,33 @@ var getUv = function(lat, lon){
     .then(function(response){
         response.json().then(function(data){
             displayUv(data);
-            // console.log(data)
+            console.log(data)
         })
     })
 };
 
 // function to display the uvIndex
-var displayUv = function(){
+var displayUv = function(index){
     var uvIndexEl = document.createElement('div');
     uvIndexEl.textContent= "UV Index: "
     uvIndexEl.classList ='list-group-item'
 
     uvIndexValue=document.createElement('span')
     uvIndexValue.textContent = index.value
+
+    //console.log(index.value)
+
+    if(index.value <=2){
+        uvIndexValue.classList = 'favorable'
+    } else if (index.value >2 && index.value<=8){
+        uvIndexValue.classList = 'moderate'
+    } else if(index.value >8){
+        uvIndexValue.classList = "severe"
+    }
+
+    uvIndexEl.appendChild(uvIndexValue);
+
+    weatherContainerEl.appendChild(uvIndexEl);
 
 };
 
@@ -140,7 +154,7 @@ var pastSearchHandler = function(){
 cityFromEl.addEventListener('submit', formSubmitHandler);
 pastSearchButtonEl.addEventListener('click', pastSearchHandler);
 
-getWeather('Atlanta');
+getWeather('houston');
 
 
 // GIVEN a weather dashboard with form inputs
