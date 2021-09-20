@@ -164,6 +164,11 @@ var display5DayForecast = function(weather){
         forecastDate.classList = "card-header text-center"
         forecastEl.appendChild(forecastDate);
 
+        // create an image element
+        var weatherIcon = document.createElement('img')
+        weatherIcon.classList = 'card-body text-center';
+        weatherIcon.setAttribute('src', `https://openweatheramp.org/img/wn/${dailyForecast.weather[0].icon}@2x.png`);
+
         
 
 }
