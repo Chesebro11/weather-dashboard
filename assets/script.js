@@ -125,24 +125,40 @@ var displayUv = function(index){
     uvIndexEl.appendChild(uvIndexValue);
 
     weatherContainerEl.appendChild(uvIndexEl);
+    var city ='portland'
+    get5Day(city);
 
 };
 
 // api call to get the 5 day forecast
-var get5Day = function(){
+var get5Day = function(city){
     var apiKey='c3bffa45313b11091ad9031fc5d8f2e7';
-    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
-    
-    fetch(apiUrl)
+    var apiURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
+
+    fetch(apiURL)
     .then(function(response){
         response.json().then(function(data){
-            display5Day(data);
-        })
-    })
+           display5DayForecast(data);
+        });
+    });
 };
 
 // display 5day forecast
-var display5Day = function(){
+var display5DayForecast = function(weather){
+    forecastContainerEl.textContent = ''
+    forecastTitle.textContent = "5-Day Forecast:";
+
+    var forecast = weather.list;
+        for(var i=5; i< forecast.length; i=i+8){
+            var dailyForecast = forecast[i];
+        }
+        
+        var forecastEl = document.createElement('div');
+        forecastEl.classList = 'card bg-primary text-light m-2';
+
+        console.log(dailyForecast)
+
+        
 
 }
 
@@ -160,7 +176,7 @@ var pastSearchHandler = function(){
 cityFromEl.addEventListener('submit', formSubmitHandler);
 pastSearchButtonEl.addEventListener('click', pastSearchHandler);
 
-getWeather('houston');
+getWeather('portland');
 
 
 // GIVEN a weather dashboard with form inputs
