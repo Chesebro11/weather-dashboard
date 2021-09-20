@@ -21,36 +21,27 @@
 
   <!--City Search Form-->
   <main class="flex-row justify-space-between">
-    <div class="col-12 col-md-4">
+    <div class="container-fluid">
+      <div class='row'>
+      <div class="col-3 big-light border-1 mx-3">
       <div class="card">
-        <h3 class="card-header text-uppercase">Search For A City</h3>
+        <h3 class="card-header text-uppercase row mx-3">Search For A City:</h3>
         <form class='card-body'></form>
-        <label for="city" class="form-label">Search For A City</label>
-        <input name='city' id='city' type='text' autofocus='true' class='form-input'/>
-        <button type ='submit' class='btn'>Search</button>
+        <input name='city' id='city' type='text' autofocus='true' class='border form-control-lg'/>
+        <button type ='button' id='btn' class='btn btn-primary btn-md border-0'>Search
+          <span class='oi oi-magnifying-glass'></span>
+        </button>
+        </div>
+        <div class='list-group row m-3' id='recentcity'></div>
+      </div>
+      <div class="col-9">
+        <div class="row border m-3" id='searchedcity'></div>
+        <div class='row m-3' id='forecastcity'></div>
       </div>
     </div>
-    <!--Create section for recently searched cities-->
-    <div id='recent-searches'>
+    
 
-    </div>
-
-    <!--Create Section that will provide city current day name date temp wind humidity uv-->
-    <div id='weather-today'>
-      <h2 id='city-today'>ATLANTA</h2>
-      <h3 id='temp-today'>101</h3>
-      <h3 id='wind-today'>6.67mph</h3>
-      <h3 id='humidity-today'>40%</h3>
-      <h3 id='uv-today'>0.47</h3>
-    </div>
-  
-    <!--5-Day Forecast section-->
-    <div id='5-day-forecast'>
-      <div class="card">
-        <h4 class='card-header'></h3>
-        <h4 class='card-body'></h3>
-      </div>
-    </div>
+   
   
   </main>
     
