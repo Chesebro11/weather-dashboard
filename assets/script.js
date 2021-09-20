@@ -31,9 +31,16 @@ var saveSearch = function(){
 };
 
 //api call to get weather
-var getWeather = function(){
+var getWeather = function(city){
     var apiKey='c3bffa45313b11091ad9031fc5d8f2e7';
     var apiUrl=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
+
+    fetch(apiUrl)
+    .then(function(response){
+        response.json().then(function(data){
+            displayWeather(data, city)
+        })
+    })
 };
 
 // function to display the weahter
@@ -79,7 +86,7 @@ var pastSearchHandler = function(){
 cityFromEl.addEventListener('submit', formSubmitHandler);
 pastSearchButtonEl.addEventListener('click', pastSearchHandler);
 
-
+getWeather('atlanta');
 
 
 // GIVEN a weather dashboard with form inputs
