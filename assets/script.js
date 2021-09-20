@@ -92,8 +92,15 @@ var displayWeather = function(weather, searchedCity) {
 // api call to get uvindex
 var getUv = function(lat, lon){
     var apiKey='c3bffa45313b11091ad9031fc5d8f2e7';
-    var apiURL = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
+    var apiUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&lon=${lon}`
 
+    fetch(apiUrl)
+    .then(function(response){
+        response.json().then(function(data){
+            displayUv(data);
+            // console.log(data)
+        })
+    })
 };
 
 // function to display the uvIndex
