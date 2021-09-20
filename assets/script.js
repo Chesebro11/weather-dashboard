@@ -105,6 +105,12 @@ var getUv = function(lat, lon){
 
 // function to display the uvIndex
 var displayUv = function(){
+    var uvIndexEl = document.createElement('div');
+    uvIndexEl.textContent= "UV Index: "
+    uvIndexEl.classList ='list-group-item'
+
+    uvIndexValue=document.createElement('span')
+    uvIndexValue.textContent = index.value
 
 };
 
