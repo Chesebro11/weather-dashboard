@@ -27,7 +27,7 @@ var formSubmitHandler = function(event){
 
 // save recent cearches
 var saveSearch = function(){
-    localStorage.setItem('cities', json.stringify(cities));
+    localStorage.setItem('cities', JSON.stringify(cities));
 };
 
 //api call to get weather
@@ -126,7 +126,7 @@ var displayUv = function(index){
 
     weatherContainerEl.appendChild(uvIndexEl);
     // var city ='portland'
-    get5Day(city);
+    //get5Day(city);
 
 };
 
