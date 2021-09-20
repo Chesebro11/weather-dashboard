@@ -196,18 +196,26 @@ var display5DayForecast = function(weather){
 };
 
 // display the most recent searches
-var pastSearch = function(){
+var searchHistory = function(searchHistory){
+
+    searchHistoryhEl = document.createElement('button');
+    searchHistoryhEl.textContent = searchHistory;
+    searchHistoryEl.classList = 'd-flex w-100 btn-light border p-2';
+    searchHistoryEl.setAttribute('data-city', searchHistory)
+    searchHistoryEl.setAttribute('type', 'submit');
+
+    pastSearchButtonEl.prepend(searchHistoryEl);
 
 }
 
 // handle the event of clicking on one of those searches
-var pastSearchHandler = function(){
+var searchHistoryHandler = function(){
 
 }
 
 
 cityFromEl.addEventListener('submit', formSubmitHandler);
-pastSearchButtonEl.addEventListener('click', pastSearchHandler);
+searchHistoryButtonEl.addEventListener('click', searchHistoryHandler);
 
 getWeather('portland');
 
