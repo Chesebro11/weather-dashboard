@@ -1,20 +1,20 @@
 var cities = [];
 
 
-var cityFromEl=document.querySelector('#search-form');
+var cityFormEl=document.querySelector('#search-form');
 var cityInputEl=document.querySelector('#city');
 var weatherContainerEl=document.querySelector('#current-weather-container');
 var citySearchInputEl=document.querySelector('#searched-city');
 var forecastTitle = document.querySelector('#forecast');
 var forecastContainerEl = document.querySelector('#fiveday');
-var pastSearchButtonEl = document.querySelector('#past-search-buttons');
+var searchHistoryButtonEl = document.querySelector('#past-search-buttons');
 
 // from submit handler
 var formSubmitHandler = function(event){
     event.preventDefault();
     var city = cityInputEl.value.trim();
     if(city) {
-        getCityWeather(city);
+        getWeather(city);
         get5Day(city);
         cities.unshift({city});
         cityInputEl.value='';
@@ -22,7 +22,7 @@ var formSubmitHandler = function(event){
         alert('Please Enter a City')
     }
     saveSearch();
-    pastSearch(city);
+    searchHistory(city);
 }
 
 // save recent cearches
@@ -125,7 +125,7 @@ var displayUv = function(index){
     uvIndexEl.appendChild(uvIndexValue);
 
     weatherContainerEl.appendChild(uvIndexEl);
-    var city ='portland'
+    // var city ='portland'
     get5Day(city);
 
 };
@@ -204,20 +204,24 @@ var searchHistory = function(searchHistory){
     searchHistoryEl.setAttribute('data-city', searchHistory)
     searchHistoryEl.setAttribute('type', 'submit');
 
-    pastSearchButtonEl.prepend(searchHistoryEl);
+    searchHistoryButtonEl.prepend(searchHistoryEl);
 
 }
 
 // handle the event of clicking on one of those searches
-var searchHistoryHandler = function(){
-
+var searchHistoryHandler = function(event){
+    var city = event.target.getAttribute('data-city')
+    if(city){
+        getCityWeather(city);
+        get5Day(city);
+    }
 }
 
 
-cityFromEl.addEventListener('submit', formSubmitHandler);
+cityFormEl.addEventListener('submit', formSubmitHandler);
 searchHistoryButtonEl.addEventListener('click', searchHistoryHandler);
 
-getWeather('portland');
+
 
 
 // GIVEN a weather dashboard with form inputs
