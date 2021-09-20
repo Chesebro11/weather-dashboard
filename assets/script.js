@@ -169,6 +169,16 @@ var display5DayForecast = function(weather){
         weatherIcon.classList = 'card-body text-center';
         weatherIcon.setAttribute('src', `https://openweatheramp.org/img/wn/${dailyForecast.weather[0].icon}@2x.png`);
 
+        //append
+        forecastEl.appendChild(weatherIcon);
+
+        // create temperature element
+        var forecastTempEl=document.createElement('span');
+        forecastTempEl.classlist = 'card-body text-center';
+        forecastTempEl.textContent = dailyForecast.main.temp + '°F';
+
+        forecastEl.appendChild(forecastTempEl);
+
         
 
 }
