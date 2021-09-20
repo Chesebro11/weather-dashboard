@@ -1,0 +1,21 @@
+.list-group-item{
+    line-height: 0.5;
+    border: none;
+}
+span.severe{
+    padding: 4px;
+    background-color: red;
+    color: white;
+}
+
+span.moderate{
+    padding: 4px;
+    background-color: yellow;
+    color: white;
+}
+
+span.favorable{
+    padding: 4px;
+    background-color: green;
+    color: white;
+}
