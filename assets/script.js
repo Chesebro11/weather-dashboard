@@ -158,6 +158,12 @@ var display5DayForecast = function(weather){
 
         console.log(dailyForecast)
 
+        //create date element
+        var forecastDate = document.createElement('h5')
+        forecastDate.textContent = moment.unix(dailyForecast.dt).format('MMM D, YYYY');
+        forecastDate.classList = "card-header text-center"
+        forecastEl.appendChild(forecastDate);
+
         
 
 }
