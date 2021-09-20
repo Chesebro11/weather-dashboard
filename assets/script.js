@@ -56,6 +56,10 @@ var displayWeather = function(weather, searchCity) {
    currentDate.textContent=" (" + moment(weather.dt.value).format("MMM D, YYYY") + ") ";
    citySearchInputEl.appendChild(currentDate);
 
+   var weatherIcon = document.createElement('img')
+   weatherIcon.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+   citySearchInputEl.appendChild(weatherIcon);
+
 };
 
 // api call to get uvindex
