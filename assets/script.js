@@ -27,7 +27,7 @@ var formSubmitHandler = function(event){
 
 // save recent cearches
 var saveSearch = function(){
-
+    localStorage.setItem('cities', json.stringify(cities));
 };
 
 //api call to get weather
